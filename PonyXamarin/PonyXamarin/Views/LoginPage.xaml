@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PonyXamarin.Views.LoginPage"
+             BackgroundColor="#c79dd7">
+    
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Username:"/>
+            <Entry Text="{Binding Username}" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Color:" />
+            <Entry Text="{Binding Password}" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <Button Text="POST" Command="{Binding Login}" HorizontalOptions="CenterAndExpand" BackgroundColor="Aqua"/>
+    </StackLayout>
+</ContentPage>

@@ -10,12 +10,11 @@ namespace PonyXamarin
     {
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
 
-        public static List<Pony> ponies = new List<Pony>();
         protected override void OnInitialized()
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("NavigationPage/MainPage");
+            NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes()
@@ -23,6 +22,7 @@ namespace PonyXamarin
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<FormPage>();
+            Container.RegisterTypeForNavigation<LoginPage>();
         }
     }
 }
