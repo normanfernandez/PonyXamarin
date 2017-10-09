@@ -4,8 +4,18 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PonyXamarin.Views.MainPage"
-             Title="MainPage">
+             Title="MainPage"
+             BackgroundColor="Purple">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+        <ListView ItemsSource="{Binding ObservablePonies}" HasUnevenRows="True" VerticalOptions="StartAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell TextColor="Black" Text="{Binding Name}" Detail="{Binding PonyStyle.Color}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Command="{Binding GoToForm}" Text="AGREGAR PONY" />
+        <Button Command="{Binding GetPonies}" Text="REFRESH" />
+        <Button Command="{Binding TruncatePonies}" Text="TRUNCATE"/>
+    </StackLayout>
 </ContentPage>
