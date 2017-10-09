@@ -17,6 +17,6 @@
             <Label Text="Color:" />
             <Entry Text="{Binding Password}" IsPassword="True" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-        <Button Text="POST" Command="{Binding Login}" HorizontalOptions="CenterAndExpand" BackgroundColor="Aqua"/>
+        <Button Text="POST" Command="{Binding Login}" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua"/>
     </StackLayout>
 </ContentPage>
