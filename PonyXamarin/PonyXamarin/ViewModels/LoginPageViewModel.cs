@@ -19,6 +19,8 @@ namespace PonyXamarin.ViewModels
         {
             NavigationService = navigationService;
             PageDialogService = pageDialogService;
+            Username = "";
+            Password = "";
             Login = new DelegateCommand(ValidateLogin);
         }
 
