@@ -4,7 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PonyXamarin.Views.LoginPage"
-             BackgroundColor="#c79dd7">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#fdf6af">
     
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
@@ -17,6 +18,6 @@
             <Label Text="Color:" />
             <Entry Text="{Binding Password}" IsPassword="True" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-        <Button Text="POST" Command="{Binding Login}" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua"/>
+        <Button Text="LOGIN" Command="{Binding Login}" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#f3b6cf"/>
     </StackLayout>
 </ContentPage>
