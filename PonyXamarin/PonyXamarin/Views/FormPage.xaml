@@ -4,19 +4,19 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PonyXamarin.Views.FormPage"
-             BackgroundColor="Pink">
+             Title="Pony Form">
     
-    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Name:" />
-            <Entry Text="{Binding Pony.Name}" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Name:"/>
+            <Entry Text="{Binding Pony.Name}" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <Label Text="Color:" />
-            <Entry Text="{Binding Pony.PonyStyle.Color}" />
+            <Entry Text="{Binding Pony.PonyStyle.Color}" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-        <Button Text="POST" Command="{Binding PostPony}"/>
+        <Button Text="POST" Command="{Binding PostPony}" HorizontalOptions="CenterAndExpand" BackgroundColor="Pink"/>
     </StackLayout>
 </ContentPage>
