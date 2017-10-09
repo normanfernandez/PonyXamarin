@@ -14,8 +14,8 @@ namespace PonyXamarin.ViewModels
 {
     public class MainPageViewModel : BindableBase
     {
-        private INavigationService navigationService;
-        private IPageDialogService pageDialogService;
+        private INavigationService NavigationService;
+        private IPageDialogService PageDialogService;
         private RestClient restClient = new RestClient();
         private ObservableCollection<Pony> _observablePonies;
         public ObservableCollection<Pony> ObservablePonies
@@ -29,8 +29,8 @@ namespace PonyXamarin.ViewModels
 
         public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
-            this.navigationService = navigationService;
-            this.pageDialogService = pageDialogService;
+            NavigationService = navigationService;
+            PageDialogService = pageDialogService;
             GoToForm = new DelegateCommand(GoToPonyForm);
             TruncatePonies = new DelegateCommand(TruncatePoniesList);
             GetPonies = new DelegateCommand(GetPoniesMethod);
@@ -42,7 +42,7 @@ namespace PonyXamarin.ViewModels
             var response = await restClient.GetPonies();
             if (response == null)
             {
-                await pageDialogService.DisplayAlertAsync("Error", "No se pudo descargar", "Close");
+                await PageDialogService.DisplayAlertAsync("Error", "No se pudo descargar", "Close");
                 return;
             }
 
@@ -53,12 +53,19 @@ namespace PonyXamarin.ViewModels
 
         public async void TruncatePoniesList()
         {
-            await pageDialogService.DisplayAlertAsync("",ObservablePonies.Count.ToString(),"Close");
+            var result = await restClient.TruncatePonies();
+            if (result)
+            {
+                await PageDialogService.DisplayAlertAsync("Success", "TRUNCATED SUCCESSFULLY", "Close");
+                GetPoniesMethod();
+            }
+            else
+                await PageDialogService.DisplayAlertAsync("Error", "COULD NOT TRUNCATE", "Close");
         }
 
         public async void GoToPonyForm()
         {
-            await navigationService.NavigateAsync("NavigationPage/FormPage");
+            await NavigationService.NavigateAsync("NavigationPage/FormPage");
         }
     }
 }

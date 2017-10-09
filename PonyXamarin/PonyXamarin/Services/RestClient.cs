@@ -64,5 +64,24 @@ namespace PonyXamarin.Services
             return false;
 
         }
+
+        public async Task<bool> TruncatePonies()
+        {
+            try
+            {
+                var response = await httpClient.DeleteAsync(API);
+                if (response.StatusCode == HttpStatusCode.NoContent)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return false;
+
+        }
     }
 }
