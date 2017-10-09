@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PonyXamarin.Views.MainPage"
              Title="MainPage"
-             BackgroundColor="Purple">
+             BackgroundColor="#c79dd7">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <ListView ItemsSource="{Binding ObservablePonies}" HasUnevenRows="True" VerticalOptions="StartAndExpand">
             <ListView.ItemTemplate>
@@ -14,8 +14,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Command="{Binding GoToForm}" Text="AGREGAR PONY" />
-        <Button Command="{Binding GetPonies}" Text="REFRESH" />
-        <Button Command="{Binding TruncatePonies}" Text="TRUNCATE"/>
+        <Button Command="{Binding GoToForm}" Text="AGREGAR PONY" BackgroundColor="#4d1b7b"/>
+        <Button Command="{Binding GetPonies}" Text="REFRESH" BackgroundColor="#4d1b7b"/>
+        <Button Command="{Binding TruncatePonies}" Text="TRUNCATE" BackgroundColor="#4d1b7b"/>
     </StackLayout>
 </ContentPage>
